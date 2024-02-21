@@ -2,6 +2,7 @@ package SpringDi;
 
 import SpringDi.Entity.*;
 import SpringDi.Ui.ExamConsole;
+import SpringDi.Ui.GridExamConsole;
 import SpringDi.Ui.InlineExamConsole;
 
 public class Program {
@@ -9,5 +10,8 @@ public class Program {
         Exam exam = new InhwanExam();
 
         ExamConsole console = new InlineExamConsole(exam);
+        console.print();
+
+        ExamConsole console1 = new GridExamConsole(exam);
     }
 }
