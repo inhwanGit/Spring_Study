@@ -1,6 +1,6 @@
-package SpringDi;
+package SpringDi.Entity;
 
 public interface Exam {
     int total();
-    int avg();
+    float avg();
 }
