@@ -34,3 +34,5 @@ Spring 프레임워크
 ## 객체를 싱글턴으로 생성해주고, 자기자신도 싱글턴인 ApplicationContext
 -> 컨테이너 역할을 수행한다.
 -> Spring이 제공하는 컨테이너는 이것보다 훨씬 복잡한 일을 한다.
+
+spring에 불편함을 spring boot로 보완
