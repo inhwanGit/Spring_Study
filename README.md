@@ -35,4 +35,64 @@ Spring 프레임워크
 -> 컨테이너 역할을 수행한다.
 -> Spring이 제공하는 컨테이너는 이것보다 훨씬 복잡한 일을 한다.
 
-spring에 불편함을 spring boot로 보완
+## ApplicationContext
+-> ApplicationContext는 다양한 인터페이스를 상속 받고 있다.
+-> 스프링 컨테이너의 핵심 인터페이스!
+‘’’
+org.springframework.context
+Interface ApplicationContext
+‘’’
+-> 그중에서도 BeanFactory도 ApplicationContext는 상속받는다.
+‘’’
+org.springframework.beans.factory
+Interface BeanFactory
+‘’’
+
+## ApplicationContext를 구현하고 있는 대표적인 인터페이스
+-> ClASSPATH에서 XML설정파일을 읽어들여 동작한다.
+‘’’
+org.springframework.context.support
+Class ClassPathXmlApplicationContext
+‘’’
+
+## 스피링 프레임워크의 핵심 모듈
+-> Core Container 부분이 가장 핵심
+-> Gradle에서 아래의 라이브러리를 추가한다.
+
+implementation("org.springframework", "spring-context", "6.1.3")
+
+# MyService & MyDao
+-> 프로그래머가 직접 인스턴스를 생성하고 주입하는 방법
+-> setter 주입
+‘’’
+MyService myService = new MyService();
+MyDao myDao = new MyDao();
+myService.setMyDao(myDao);
+‘’’
+-> 생성자에 주입
+‘’’
+MyService myService = new MyService(new Dao());
+‘’’
+
+# Spring 설정으로 주입
+‘’’
+MyService myService = new MyService();
+MyDao myDao = new MyDao();
+myService.setMyDao(myDao);
+‘’’
+같다
+‘’’
+<bean id="myService" class="org.example.spring.componet.Myservice">
+    <!--setMyDao-->
+    <property name="myDao" ref="myDao"></property>
+</bean>
+<bean id="myDao" class="org.example.spring.componet.MyDao"></bean>
+‘’’
+
+# AnnotationConfigApplicationContext
+-> Spring 3.0부터 등장
+-> Annotation기반(Java Config, Component Scan)
+‘’’
+org.springframework.context.annotation
+Class AnootationConfigApplicationContext
+‘’’
